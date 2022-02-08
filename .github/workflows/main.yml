@@ -38,6 +38,6 @@ jobs:
       - name: Run ndk-crystax-r10-build.sh
         run: |
           chmod 755 ndk-crystax-r10-build.sh
-          cp ndk-crystalx-r10-build.sh android-platform-ndk
+          cp ndk-crystax-r10-build.sh android-platform-ndk
           cd android-platform-ndk
           ./ndk-crystax-r10-build.sh
