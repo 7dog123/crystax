@@ -31,7 +31,6 @@ jobs:
          export APT="sudo apt-get -y install"
          export arch=i386
          sudo apt-get update
-         sudo apt-get -y upgrade
+         sudo apt-get -y dist-upgrade
          sudo dpkg --add-architecture i386
          sudo apt-get update
-         sudo apt-get dist-upgrade
