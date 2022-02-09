@@ -19,7 +19,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-18.04
-    container: i386/ubuntu:bionic
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -29,23 +28,7 @@ jobs:
         # Runs a single command using the runners shell
       - name: upgrade ubuntu
         run: |
-         apt-get update
-         apt-get -y upgrade
-
-      - name: install dependencies
-        run: |
-         export APT="apt-get -y install"
-         $APT bison flex libtool mingw-w64 git
-         $APT pbzip2 texinfo python3 python3-lxml
-         $APT git-core gnupg build-essential zip curl 
-         $APT zlib1g-dev gcc-multilib g++-multilib
-         $APT libncurses5 lib32ncurses5-dev x11proto-core-dev
-         $APT lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc
-         $APT unzip fontconfig libx11-dev
-         $APT gcc-*-locales python3-genshi python3-lxml-dbg
-         $APT lib32stdc++6-*-dbg libx32stdc++6-*-dbg
-         sudo apt-get autoclean
-
-      - name: Run ndk-crystax-r10-build.sh
-        run: |
-          curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash
+         docker pull ubuntu@sha256:88152195106ff09bade23cb5aacfd26c381a8835c9d42124b4cba1dc3c2475e4
+         #apt-get update
+         #apt-get -y upgrade
+         uname -a
