@@ -33,7 +33,7 @@ jobs:
          $APT qemu binfmt-support qemu-user-static
          sudo dpkg --add-architecture i386
          sudo apt-get update
-         $APT libc6:i386 libncurses5:i386 libstdc++6:i386
+         $APT libc6:i386 libncurses5:i386 libstdc++6:i386 ia32-libs 
          $APT bison:$arch flex:$arch libtool mingw-w64 git
          $APT pbzip2 texinfo python3 python3-lxml
          $APT git-core gnupg build-essential zip curl 
