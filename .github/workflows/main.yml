@@ -18,10 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-    run: |
-     sudo dpkg --add-architecture i386
-     sudo apt-get update
+    runs-on: ubuntu-latest:i386
     container: ubuntu:bionic-20210827@sha256:09981dbb01195326bb445c88f1671a115363d40c68dab7f9680c68489bd3a6ca
 
     # Steps represent a sequence of tasks that will be executed as part of the job
