@@ -19,7 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    container: ubuntu:bionic-20210827:386
+    container: ubuntu:xenial-20210804@sha256:4a6759446930ee402a2091605c0911f237ad18b5c250a535d11563d9402eb15a
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
