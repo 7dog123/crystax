@@ -19,6 +19,7 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-18.04
+    container: i386/ubuntu:bionic
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,29 +29,21 @@ jobs:
         # Runs a single command using the runners shell
       - name: upgrade ubuntu
         run: |
-         sudo apt-get update
-         sudo apt-get -y full-upgrade
-
-      - name: add i386
-        run: |
-         sudo dpkg --add-architecture i386
-         sudo apt-get update
-         sudo apt-get full-upgrade
+         apt-get update
+         apt-get -y upgrade
 
       - name: install dependencies
         run: |
-         export APT="sudo apt-get -y install"
-         export arch=i386
-         $APT multiarch-support:$arch libncurses5:$arch libstdc++6:$arch lib32z1
-         $APT bison:$arch flex:$arch libtool mingw-w64 git
+         export APT="apt-get -y install"
+         $APT bison flex libtool mingw-w64 git
          $APT pbzip2 texinfo python3 python3-lxml
          $APT git-core gnupg build-essential zip curl 
-         $APT zlib1g-dev:$arch gcc-multilib g++-multilib
-         $APT libncurses5:$arch lib32ncurses5-dev x11proto-core-dev
-         $APT lib32z1-dev libgl1-mesa-dev:$arch libxml2-utils:$arch xsltproc:$arch
+         $APT zlib1g-dev gcc-multilib g++-multilib
+         $APT libncurses5 lib32ncurses5-dev x11proto-core-dev
+         $APT lib32z1-dev libgl1-mesa-dev libxml2-utils xsltproc
          $APT unzip fontconfig libx11-dev
-         $APT gcc-9-locales: python3-genshi python3-lxml-dbg
-         $APT lib32stdc++6-9-dbg libx32stdc++6-9-dbg
+         $APT gcc-*-locales python3-genshi python3-lxml-dbg
+         $APT lib32stdc++6-*-dbg libx32stdc++6-*-dbg
          sudo apt-get autoclean
 
       - name: Run ndk-crystax-r10-build.sh
