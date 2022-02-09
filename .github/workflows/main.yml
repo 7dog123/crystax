@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -41,7 +41,7 @@ jobs:
         run: |
          export APT="sudo apt-get -y install"
          export arch=i386
-         $APT libc6:$arch libncurses5:$arch libstdc++6:$arch lib32z1
+         $APT multiarch-support:$arch libncurses5:$arch libstdc++6:$arch lib32z1
          $APT bison:$arch flex:$arch libtool mingw-w64 git
          $APT pbzip2 texinfo python3 python3-lxml
          $APT git-core gnupg build-essential zip curl 
