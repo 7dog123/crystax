@@ -30,10 +30,8 @@ jobs:
         run: |
          export APT="sudo apt-get -y install"
          export arch=i386
+         sudo apt-get update
+         sudo apt-get -y upgrade
          sudo dpkg --add-architecture i386
          sudo apt-get update
-
-      # Runs a set of commands using the runners shell
-      - name: Run ndk-crystax-r10-build.sh
-        run: |
-          curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash
+         sudo apt-get dist-upgrade
