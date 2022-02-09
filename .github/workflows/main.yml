@@ -26,15 +26,33 @@ jobs:
       - uses: actions/checkout@v2
       
         # Runs a single command using the runners shell
-      - name: Install dependencies
+      - name: upgrade ubuntu
         run: |
-         export APT="sudo apt-get -y install"
-         export arch=i386
          sudo apt-get update
-         sudo apt-get -y dist-upgrade
+         sudo apt-get -y full-upgrade
 
       - name: add i386
         run: |
          sudo dpkg --add-architecture i386
          sudo apt-get update
          sudo apt-get full-upgrade
+
+      - name: install dependencies
+        run: |
+         export APT="sudo apt-get -y install"
+         export arch=i386
+         $APT libc6:$arch libncurses5:$arch libstdc++6:$arch lib32z1
+         $APT bison:$arch flex:$arch libtool mingw-w64 git
+         $APT pbzip2 texinfo python3 python3-lxml
+         $APT git-core gnupg build-essential zip curl 
+         $APT zlib1g-dev:$arch gcc-multilib g++-multilib
+         $APT libncurses5:$arch lib32ncurses5-dev x11proto-core-dev
+         $APT lib32z1-dev libgl1-mesa-dev:$arch libxml2-utils:$arch xsltproc:$arch
+         $APT unzip fontconfig libx11-dev
+         $APT gcc-9-locales: python3-genshi python3-lxml-dbg
+         $APT lib32stdc++6-9-dbg libx32stdc++6-9-dbg
+         sudo apt-get autoclean
+
+      - name: Run ndk-crystax-r10-build.sh
+        run: |
+          curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash
