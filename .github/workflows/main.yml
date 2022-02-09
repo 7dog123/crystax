@@ -32,5 +32,9 @@ jobs:
          export arch=i386
          sudo apt-get update
          sudo apt-get -y dist-upgrade
+
+      - name: add i386
+        run: |
          sudo dpkg --add-architecture i386
          sudo apt-get update
+         
