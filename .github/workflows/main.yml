@@ -48,5 +48,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run ndk-crystax-r10-build.sh
         run: |
-          chmod 755 ndk-crystax-r10-build.sh
-          ./ndk-crystax-r10-build.sh
+          curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash
