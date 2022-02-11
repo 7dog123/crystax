@@ -40,9 +40,9 @@ jobs:
         run: |
          export APT="sudo apt-get -y install"
          export arch=i386
-         $APT git-core gnupg flex bison gperf build-essential crossbuild-essential-i386
-         $APT zip curl zlib1g-dev gcc-multilib g++-multilib gcc-multilib-i686-linux-gnu
-         $APT g++-multilib-i686-linux-gnu x11proto-core-dev libx11-dev ccache file 
+         $APT git-core gnupg flex bison gperf build-essential
+         $APT zip curl zlib1g-dev gcc-multilib g++-multilib
+         $APT x11proto-core-dev libx11-dev ccache file crossbuild-essential-i386
          $APT xsltproc unzip apt-utils python2 python3 libxml2-utils libgl1-mesa-dev
          $APT libc6:$arch libncurses5:$arch libstdc++6:$arch libz1:$arch
          sudo apt-get -y autoclean
