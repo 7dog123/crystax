@@ -278,7 +278,6 @@ export NDK_LOGFILE=/tmp/ndk-$USER/build.log
 echo "=== Building CrystaX NDK ..."
 run ./build/tools/make-release.sh \
     --verbose \
-    --incremental \
     --skip-host-prebuilts \
     --force \
     --also-64 \
