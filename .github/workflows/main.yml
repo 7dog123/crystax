@@ -48,6 +48,4 @@ jobs:
          sudo apt-get -y autoclean
 
       - name: Run ndk-crystax-r10-build.sh
-        run: |
-         curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh
-         bash ndk-crystax-r10-build.sh
+        run: curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | bash 
