@@ -25,14 +25,21 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: add i386
-        run: sudo dpkg --add-architecture i386
+      - name: update ubuntu
+        run: |
+         sudo apt-get update
+         sudo apt-get -y upgrade
+
+      - name: add the i386 architecture
+        run: |
+         sudo dpkg --add-architecture i386
+         sudo apt-get update
+         sudo apt-get -y dist-upgrade
 
       - name: install dependencies
         run: |
          export APT="sudo apt-get -y install"
          export arch=i386
-         sudo apt-get -qq update && sudo apt-get -qq dist-upgrade
          $APT git-core gnupg flex bison gperf build-essential
          $APT zip curl zlib1g-dev gcc-multilib g++-multilib
          $APT x11proto-core-dev libx11-dev ccache file libgl1-mesa-dev libxml2-utils 
@@ -42,4 +49,5 @@ jobs:
 
       - name: Run ndk-crystax-r10-build.sh
         run: |
-         curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh | /bin/bash --verbose --incremental
+         curl -sSL https://www.crystax.net/download/ndk-crystax-r10-build.sh
+         bash ndk-crystax-r10-build.sh --verbose --incremental
