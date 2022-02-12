@@ -279,7 +279,7 @@ echo "=== Building CrystaX NDK ..."
 run ./build/tools/make-release.sh \
     --verbose \
     --force \
-    --also-64 \
+    --only-64 \
     --prefix=crystax-ndk \
     --release=$version \
     --toolchain-src-dir=$srcdir/toolchain \
